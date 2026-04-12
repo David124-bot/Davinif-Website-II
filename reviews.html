@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Davinif - Reviews</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .review-container {
+      max-width: 900px;
+      margin: auto;
+      margin-top: 40px;
+    }
+
+    .review-box {
+      background: #111;
+      padding: 20px;
+      border: 1px solid #333;
+      margin-bottom: 20px;
+    }
+
+    .review-box h2, .review-box h3 {
+      margin-bottom: 10px;
+    }
+
+    textarea, input {
+      width: 100%;
+      padding: 10px;
+      margin-top: 10px;
+      background: #000;
+      color: #fff;
+      border: 1px solid #333;
+    }
+
+    .stars {
+      display: flex;
+      gap: 5px;
+      font-size: 24px;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+
+    .star {
+      color: gray;
+      transition: 0.2s;
+    }
+
+    .star.active {
+      color: gold;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 10px 20px;
+      border: 1px solid #fff;
+      color: #fff;
+      background: none;
+      cursor: pointer;
+      margin-top: 10px;
+      transition: 0.3s;
+    }
+
+    .btn:hover {
+      background: #fff;
+      color: #000;
+    }
+
+    .single-review {
+      border-bottom: 1px solid #333;
+      padding: 10px 0;
+    }
+  </style>
+</head>
+
+<body>
+
+<!-- Navbar -->
+<nav class="navbar">
+  <h1 class="logo">Davinif</h1>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="services.html">Services</a></li>
+  </ul>
+</nav>
+
+<div class="review-container">
+
+  <!-- Intro -->
+  <div class="review-box">
+    <h2>Game Reviews</h2>
+    <p>
+      Welcome to the Davinif review section. Here you can share your thoughts on games,
+      rate them, and see what other players think. Your reviews help others discover
+      the best games and improve their experience.
+    </p>
+  </div>
+
+  <!-- Review Form -->
+  <div class="review-box">
+    <h3>Write a Review</h3>
+
+    <input type="text" id="username" placeholder="Your name">
+    <textarea id="reviewText" placeholder="Write your review..."></textarea>
+
+    <div class="stars" id="stars">
+      <span class="star" data-value="1">★</span>
+      <span class="star" data-value="2">★</span>
+      <span class="star" data-value="3">★</span>
+      <span class="star" data-value="4">★</span>
+      <span class="star" data-value="5">★</span>
+    </div>
+
+    <button class="btn" onclick="submitReview()">Submit</button>
+  </div>
+
+  <!-- Reviews Display -->
+  <div class="review-box">
+    <h3>All Reviews</h3>
+    <div id="reviews"></div>
+  </div>
+
+</div>
+
+<!-- Footer -->
+<footer class="footer">
+  <div class="footer-content">
+    <h2>Davinif</h2>
+    <p>Created by Unegbu David</p>
+
+    <div class="footer-info">
+      <p>Email: <a href="mailto:davidoxx124@gmail.com">davidoxx124@gmail.com</a></p>
+      <p>Phone: <a href="tel:09062317609">09062317609</a></p>
+    </div>
+
+    <p class="copyright">© 2026 Davinif. All rights reserved.and Stay connected</p>
+  </div>
+</footer>
+
+<script>
+let rating = 0;
+
+// STAR CLICK SYSTEM
+const stars = document.querySelectorAll(".star");
+stars.forEach(star => {
+  star.addEventListener("click", () => {
+    rating = star.getAttribute("data-value");
+    updateStars();
+  });
+});
+
+function updateStars() {
+  stars.forEach(star => {
+    star.classList.remove("active");
+    if (star.getAttribute("data-value") <= rating) {
+      star.classList.add("active");
+    }
+  });
+}
+
+// SUBMIT REVIEW
+function submitReview() {
+  const name = document.getElementById("username").value;
+  const text = document.getElementById("reviewText").value;
+
+  if (!name || !text || rating == 0) {
+    alert("Please fill everything!");
+    return;
+  }
+
+  const review = {
+    name: name,
+    text: text,
+    rating: rating
+  };
+
+  let reviews = JSON.parse(localStorage.getItem("reviews")) || [];
+  reviews.push(review);
+
+  localStorage.setItem("reviews", JSON.stringify(reviews));
+
+  document.getElementById("username").value = "";
+  document.getElementById("reviewText").value = "";
+  rating = 0;
+  updateStars();
+
+  displayReviews();
+}
+
+// DISPLAY REVIEWS
+function displayReviews() {
+  const reviewsDiv = document.getElementById("reviews");
+  const reviews = JSON.parse(localStorage.getItem("reviews")) || [];
+
+  reviewsDiv.innerHTML = "";
+
+  reviews.forEach(r => {
+    const div = document.createElement("div");
+    div.classList.add("single-review");
+
+    div.innerHTML = `
+      <strong>${r.name}</strong> (${"★".repeat(r.rating)})
+      <p>${r.text}</p>
+    `;
+
+    reviewsDiv.appendChild(div);
+  });
+}
+
+// LOAD ON START
+displayReviews();
+</script>
+
+</body>
+</html>
+```

@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Davinif - Services</title>
+<link rel="stylesheet" href="style.css">
+
+<style>
+.section { margin-top: 50px; text-align: center; }
+
+.search-box {
+  margin: 20px auto;
+  max-width: 400px;
+}
+
+.search-box input {
+  width: 100%;
+  padding: 10px;
+  background: #111;
+  color: #fff;
+  border: 1px solid #333;
+}
+
+.features {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.card {
+  background: #111;
+  padding: 20px;
+  width: 250px;
+  border: 1px solid #333;
+  transition: 0.3s;
+}
+
+.card:hover {
+  background: #fff;
+  color: #000;
+}
+
+.btn {
+  display: inline-block;
+  padding: 10px 20px;
+  border: 1px solid #fff;
+  color: #fff;
+  text-decoration: none;
+  margin-top: 10px;
+}
+
+.btn:hover {
+  background: #fff;
+  color: #000;
+}
+
+.category {
+  font-size: 12px;
+  margin-top: 5px;
+  color: #00ffcc;
+}
+
+.notice {
+  background: #111;
+  padding: 20px;
+  margin-top: 50px;
+  border: 1px solid #333;
+}
+</style>
+</head>
+
+<body>
+
+<nav class="navbar">
+  <h1 class="logo">Davinif</h1>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="reviews.html">Reviews</a></li>
+    <li><a href="about.html">About</a></li>
+  </ul>
+</nav>
+
+<!-- SEARCH -->
+<div class="search-box">
+  <input type="text" id="search" placeholder="Search mods, shaders..." onkeyup="searchItems()">
+</div>
+
+<!-- MODS -->
+<div class="section">
+<h2>Mods</h2>
+<div class="features" id="mods">
+
+<div class="card" data-name="OptiFine fps">
+<h3>OptiFine</h3>
+<p>Boost FPS and add shaders</p>
+<div class="category">FPS</div>
+<a href="https://optifine.net/downloads" class="btn">Download</a>
+</div>
+
+<div class="card" data-name="Sodium fps fabric">
+<h3>Sodium</h3>
+<p>Massive FPS boost (Fabric)</p>
+<div class="category">FPS</div>
+<a href="https://modrinth.com/mod/sodium" class="btn">Download</a>
+</div>
+
+<div class="card" data-name="Just Enough Items jei">
+<h3>JEI</h3>
+<p>View crafting recipes</p>
+<div class="category">Utility</div>
+<a href="https://www.curseforge.com/minecraft/mc-mods/jei" class="btn">Download</a>
+</div>
+
+<div class="card" data-name="JourneyMap map">
+<h3>JourneyMap</h3>
+<p>Live minimap</p>
+<div class="category">Exploration</div>
+<a href="https://www.curseforge.com/minecraft/mc-mods/journeymap" class="btn">Download</a>
+</div>
+
+<div class="card" data-name="Biomes O Plenty">
+<h3>Biomes O' Plenty</h3>
+<p>New biomes</p>
+<div class="category">Exploration</div>
+<a href="https://www.curseforge.com/minecraft/mc-mods/biomes-o-plenty" class="btn">Download</a>
+</div>
+
+<div class="card" data-name="SecurityCraft base protection">
+<h3>SecurityCraft</h3>
+<p>Protect your base</p>
+<div class="category">Utility</div>
+<a href="https://www.curseforge.com/minecraft/mc-mods/security-craft" class="btn">Download</a>
+</div>
+
+<div class="card" data-name="Alex Mobs animals">
+<h3>Alex's Mobs</h3>
+<p>Adds animals</p>
+<div class="category">Adventure</div>
+<a href="https://www.curseforge.com/minecraft/mc-mods/alexs-mobs" class="btn">Download</a>
+</div>
+
+<div class="card" data-name="Gun Mod pvp">
+<h3>MrCrayfish Gun Mod</h3>
+<p>Add guns</p>
+<div class="category">PvP</div>
+<a href="https://www.curseforge.com/minecraft/mc-mods/mrcrayfishs-gun-mod" class="btn">Download</a>
+</div>
+
+<div class="card" data-name="Waystones teleport">
+<h3>Waystones</h3>
+<p>Fast travel</p>
+<div class="category">Utility</div>
+<a href="https://www.curseforge.com/minecraft/mc-mods/waystones" class="btn">Download</a>
+</div>
+
+<div class="card" data-name="AppleSkin food">
+<h3>AppleSkin</h3>
+<p>Food stats</p>
+<div class="category">Utility</div>
+<a href="https://www.curseforge.com/minecraft/mc-mods/appleskin" class="btn">Download</a>
+</div>
+
+</div>
+</div>
+
+<!-- SHADERS -->
+<div class="section">
+<h2>Shader Packs</h2>
+<div class="features" id="shaders">
+
+<div class="card" data-name="BSL shader">
+<h3>BSL</h3>
+<p>Balanced visuals</p>
+<a href="https://modrinth.com/shader/bsl-shaders" class="btn">Download</a>
+</div>
+
+<div class="card" data-name="SEUS shader">
+<h3>SEUS</h3>
+<p>Realistic lighting</p>
+<a href="https://www.sonicether.com/seus/" class="btn">Download</a>
+</div>
+
+<div class="card" data-name="Sildurs shader fps">
+<h3>Sildur's</h3>
+<p>Good FPS + visuals</p>
+<a href="https://sildurs-shaders.github.io/" class="btn">Download</a>
+</div>
+
+<div class="card" data-name="Complementary shader">
+<h3>Complementary</h3>
+<p>Optimized shaders</p>
+<a href="https://modrinth.com/shader/complementary-reimagined" class="btn">Download</a>
+</div>
+
+<div class="card" data-name="Chocapic shader">
+<h3>Chocapic13</h3>
+<p>Classic shader</p>
+<a href="https://www.curseforge.com/minecraft/customization/chocapic13-shaders" class="btn">Download</a>
+</div>
+
+<div class="card" data-name="Oceano shader water">
+<h3>Oceano</h3>
+<p>Water visuals</p>
+<a href="https://www.curseforge.com/minecraft/customization/oceano-shaders" class="btn">Download</a>
+</div>
+
+<div class="card" data-name="Kappa shader">
+<h3>Kappa</h3>
+<p>Ultra realistic</p>
+<a href="https://www.curseforge.com/minecraft/customization/kappa-shader" class="btn">Download</a>
+</div>
+
+<div class="card" data-name="Continuum shader">
+<h3>Continuum</h3>
+<p>Extreme realism</p>
+<a href="https://continuum.graphics/" class="btn">Download</a>
+</div>
+
+<div class="card" data-name="MakeUp shader low end">
+<h3>MakeUp Ultra Fast</h3>
+<p>Low-end friendly</p>
+<a href="https://modrinth.com/shader/makeup-ultra-fast-shaders" class="btn">Download</a>
+</div>
+
+<div class="card" data-name="Nostalgia shader">
+<h3>Nostalgia</h3>
+<p>Classic feel</p>
+<a href="https://www.curseforge.com/minecraft/customization/nostalgia-shader" class="btn">Download</a>
+</div>
+
+</div>
+</div>
+
+<!-- SERVICES -->
+<div class="section">
+<h2>Minecraft Services</h2>
+<div class="features">
+
+<div class="card"><h3>Server Hosting</h3></div>
+<div class="card"><h3>Modpack Setup</h3></div>
+<div class="card"><h3>FPS Optimization</h3></div>
+<div class="card"><h3>World Builds</h3></div>
+<div class="card"><h3>Plugin Setup</h3></div>
+<div class="card"><h3>Game Support</h3></div>
+
+</div>
+</div>
+
+<!-- NOTICE -->
+<div class="notice">
+<h3>Notice</h3>
+<p>
+We sincerely apologize for the limited number of services currently available.
+More features will be added in future updates.
+</p>
+<p>
+Please share your opinions on our <a href="reviews.html">Reviews Page</a>.
+</p>
+</div>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-content">
+    <h2>Davinif</h2>
+    <p>Created by Unegbu David</p>
+    <p class="copyright">© 2026 Davinif</p>
+  </div>
+</footer>
+
+<script>
+function searchItems() {
+  let input = document.getElementById("search").value.toLowerCase();
+  let cards = document.querySelectorAll(".card");
+
+  cards.forEach(card => {
+    let text = card.getAttribute("data-name");
+    if (text && text.toLowerCase().includes(input)) {
+      card.style.display = "block";
+    } else if (!text) {
+      card.style.display = "block";
+    } else {
+      card.style.display = "none";
+    }
+  });
+}
+</script>
+
+</body>
+</html>
+```

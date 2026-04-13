@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Davinif - Tips</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<style>
+.features {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.card {
+  background: #111;
+  padding: 25px;
+  width: 600px;
+  text-align: left;
+  border: 1px solid #333;
+}
+
+select {
+  padding: 10px;
+  margin-top: 20px;
+  background: #111;
+  color: white;
+  border: 1px solid #333;
+}
+</style>
+
+<body>
+
+<!-- Navbar -->
+<nav class="navbar">
+  <h1 class="logo">Davinif</h1>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="reviews.html">Reviews</a></li>
+    <li><a href="services.html">Services</a></li>
+    <li><a href="resources.html">Resources</a></li>
+  </ul>
+</nav>
+
+<!-- Header -->
+<section class="container" style="text-align:center; margin-top:50px;">
+  <h1>Gaming Tips</h1>
+  <p>Select a game to see pro tips</p>
+
+  <!-- Dropdown -->
+  <select title="games" id="gameSelect" onchange="showTips()">
+    <option value="gta5">GTA 5</option>
+    <option value="minecraft">Minecraft</option>
+    <option value="roblox">Roblox</option>
+    <option value="poppy">Poppy Playtime</option>
+    <option value="sanandreas">GTA San Andreas</option>
+  </select>
+</section>
+
+<!-- Tips Display -->
+<section class="container" style="margin-top:40px;">
+  <div class="features">
+    <div class="card" id="tipsBox">
+      <h2>Tips will show here</h2>
+    </div>
+  </div>
+</section>
+
+<script>
+function showTips() {
+  let game = document.getElementById("gameSelect").value;
+  let box = document.getElementById("tipsBox");
+
+  if (game === "gta5") {
+    box.innerHTML = `
+      <h2>GTA 5 Tips</h2>
+      <ul>
+        <li>Invest in stocks before big missions.</li>
+        <li>Use cover during shootouts to survive longer.</li>
+        <li>Upgrade your weapons early.</li>
+        <li>Switch characters to escape police faster.</li>
+      </ul>
+    `;
+  }
+
+  else if (game === "minecraft") {
+    box.innerHTML = `
+      <h2>Minecraft Tips</h2>
+      <ul>
+        <li>Always mine at Y level -58 for diamonds.</li>
+        <li>Carry a water bucket to avoid fall damage.</li>
+        <li>Build a shield early for protection.</li>
+        <li>Use torches to prevent mobs from spawning.</li>
+      </ul>
+    `;
+  }
+
+  else if (game === "roblox") {
+    box.innerHTML = `
+      <h2>Roblox Tips</h2>
+      <ul>
+        <li>Adjust graphics settings for better FPS.</li>
+        <li>Play popular games to earn rewards faster.</li>
+        <li>Use private servers to train safely.</li>
+        <li>Learn controls for each game mode.</li>
+      </ul>
+    `;
+  }
+
+  else if (game === "poppy") {
+    box.innerHTML = `
+      <h2>Poppy Playtime Tips</h2>
+      <ul>
+        <li>Always listen for sound cues.</li>
+        <li>Explore carefully to find hidden items.</li>
+        <li>Don't panic during chase scenes.</li>
+        <li>Memorize puzzle patterns.</li>
+      </ul>
+    `;
+  }
+
+  else if (game === "sanandreas") {
+    box.innerHTML = `
+      <h2>GTA San Andreas Tips</h2>
+      <ul>
+        <li>Upgrade stamina by running often.</li>
+        <li>Eat food to maintain health.</li>
+        <li>Use cheat codes wisely.</li>
+        <li>Complete side missions for money.</li>
+      </ul>
+    `;
+  }
+}
+
+// Load default tips on page open
+window.onload = showTips;
+</script>
+
+<footer class="footer">
+  <div class="footer-content">
+    <h2>Davinif</h2>
+    <p>Created by Unegbu David</p>
+    <p>© 2026 Davinif. All rights reserved.</p>
+  </div>
+</footer>
+
+</body>
+</html>
